@@ -14,3 +14,4 @@ O HearNOW utiliza tecnologia de reconhecimento de voz de última geração para 
 * Histórico de transcrições para revisão posterior
 * Suporte para múltiplos idiomas
 
+![https://github.com/user-attachments/assets/c1953985-a3d9-4109-bf7b-08bce4472390]()
