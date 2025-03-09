@@ -15,11 +15,11 @@ struct HearNowView: View {
             Text("HearNow")
                 .font(.largeTitle)
                 .padding()
-
-            Text(viewModel.transcriptionText.isEmpty ? "..." : viewModel.transcriptionText)
-                .font(.title2)
-                .padding()
-
+            ScrollView(.vertical) {
+                Text(viewModel.transcriptionText.isEmpty ? "..." : viewModel.transcriptionText)
+                    .font(.title2)
+                    .padding()
+            }
             Button(action: {
                 viewModel.toggleRecording()
             }) {
