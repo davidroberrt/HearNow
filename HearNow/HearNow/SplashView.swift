@@ -19,10 +19,11 @@ struct SplashView: View {
                 Image("HearNow")
                     .resizable()
                     .frame(minWidth: 400, minHeight: 400)
+                    .scaledToFit()
                 Spacer()
             }
             .onAppear(){
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     self.showSplash = false
                 }
             }
