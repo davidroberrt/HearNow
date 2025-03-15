@@ -2,7 +2,7 @@
 
 **Descrição:**
 
-HearNOW é um aplicativo inovador projetado para auxiliar pessoas com deficiência auditiva, transformando a comunicação falada em texto em tempo real. Ele escuta conversas e transcreve instantaneamente as palavras em texto na tela do dispositivo, proporcionando uma experiência de comunicação mais acessível e inclusiva.
+HearNOW é um aplicativo inovador projetado para auxiliar pessoas com deficiência auditiva, transformando a comunicação falada em texto em tempo real. Ele escuta conversas e transcreve instantaneamente as palavras em texto na tela do dispositivo, proporcionando uma experiência de comunicação mais acessível e inclusiva. Além de ajudar pessoas com deficiencia auditiva que estão aprendendo a falar para melhorar sua dicção.
 
 ## Visão Geral
 
