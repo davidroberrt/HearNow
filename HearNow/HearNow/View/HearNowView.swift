@@ -9,17 +9,38 @@ import SwiftUI
 
 struct HearNowView: View {
     @StateObject private var viewModel = HearNowViewModel()
-
+    
+    @State private var scrollToBottomID = UUID()  // Identificador para rolar até o final
+    
     var body: some View {
         VStack {
-            Text("HearNow")
-                .font(.largeTitle)
-                .padding()
-            ScrollView(.vertical) {
-                Text(viewModel.transcriptionText.isEmpty ? "..." : viewModel.transcriptionText)
-                    .font(.title2)
-                    .padding()
+            Image("HearNow")
+                .resizable()
+                .scaledToFit()
+            
+            if viewModel.isRecording {
+                waveform
             }
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                ScrollViewReader { proxy in
+                    Text(viewModel.transcriptionText.isEmpty ? "Wait and see the audition..." : viewModel.transcriptionText)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .id(scrollToBottomID)  // Identificador para rolar até o final
+                        .onChange(of: viewModel.transcriptionText) {_, _ in
+                            // Rola até o final sempre que o texto mudar
+                            withAnimation {
+                                proxy.scrollTo(scrollToBottomID, anchor: .bottom)
+                            }
+                        }
+                }
+            }
+            .frame(maxHeight: 100)  // Limita a altura máxima da ScrollView
+
+            
             Button(action: {
                 viewModel.toggleRecording()
             }) {
@@ -29,8 +50,22 @@ struct HearNowView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
+            Spacer()
         }
         .padding()
+    }
+}
+
+
+extension HearNowView {
+    var waveform: some View {
+        Image(systemName: "waveform")
+            .resizable()
+            .frame(width: 120, height: 120)
+            .symbolEffect(.variableColor.iterative.reversing)
+            .symbolEffect(.breathe.byLayer)
+            .foregroundStyle(.cyan)
+            .padding()
     }
 }
 

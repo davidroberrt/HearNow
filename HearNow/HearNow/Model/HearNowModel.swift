@@ -81,7 +81,7 @@ class HearNowModel {
         guard let recognitionRequest = request else { return }
 
         // Aguardando a fala para reconhecer
-        var recognitionTask = recognizer?.recognitionTask(with: recognitionRequest) { result, error in
+        _ = recognizer?.recognitionTask(with: recognitionRequest) { result, error in
             if let result = result {
                 let transcription = result.bestTranscription.formattedString
                 completion(transcription)
