@@ -24,9 +24,10 @@ struct HearNowView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 ScrollViewReader { proxy in
-                    Text(viewModel.transcriptionText.isEmpty ? "Wait and see the audition..." : viewModel.transcriptionText)
+                    Text(viewModel.transcriptionText.isEmpty ? "Play, wait and see the audition..." : viewModel.transcriptionText)
                         .font(.title2)
                         .fontWeight(.bold)
+                        .foregroundColor( viewModel.transcriptionText.isEmpty ? .black : .blue)
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .center)
                         .id(scrollToBottomID)  // Identificador para rolar até o final
@@ -37,6 +38,7 @@ struct HearNowView: View {
                             }
                         }
                 }
+                .foregroundStyle(.black)
             }
             .frame(maxHeight: 100)  // Limita a altura máxima da ScrollView
 
