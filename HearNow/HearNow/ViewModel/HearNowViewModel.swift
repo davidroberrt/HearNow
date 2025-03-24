@@ -16,6 +16,7 @@ class HearNowViewModel: ObservableObject {
     func toggleRecording() {
         if isRecording {
             soundLensModel.stopRecording()
+            transcriptionText = ""
         } else {
             soundLensModel.startRecording { [weak self] transcription in
                 DispatchQueue.main.async {
